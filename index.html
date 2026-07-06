@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐々木世紀  様｜morich キャリアご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E60012;
+    --red-light: #fff0f0;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-600: #2563eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f5; color: var(--gray-900); line-height: 1.75; }
+  header { background: #fff; border-bottom: 3px solid var(--red); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  header img { height: 38px; }
+  header .htxt p:first-child { font-size: 12px; color: var(--gray-500); }
+  header .htxt p:last-child { font-size: 17px; font-weight: 900; }
+  .nav-bar { background: var(--gray-900); padding: 0 12px; overflow-x: auto; white-space: nowrap; }
+  .nav-bar a { display: inline-block; padding: 13px 18px; color: #ccc; text-decoration: none; font-size: 12px; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-bar a:hover { color: #fff; border-bottom-color: var(--red); }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 14px 64px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 40px; overflow: hidden; border-top: 5px solid var(--red); }
+  .card-inner { padding: 28px 28px 36px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--red-light); }
+  .badge-blue { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+  .co-name { font-size: clamp(22px, 5vw, 34px); font-weight: 900; line-height: 1.2; margin-bottom: 5px; }
+  .co-url { font-size: 12px; margin-bottom: 22px; }
+  .co-url a { color: var(--blue-600); text-decoration: none; }
+  .co-url a:hover { text-decoration: underline; }
+  .overview { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .overview h3 { font-size: 10px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .overview tr { border-bottom: 1px solid var(--blue-100); }
+  .overview tr:last-child { border-bottom: none; }
+  .overview th { text-align: left; padding: 6px 14px 6px 0; color: var(--gray-600); font-weight: 700; width: 100px; vertical-align: top; white-space: nowrap; }
+  .overview td { padding: 6px 0; color: var(--gray-700); }
+  .highlight { background: var(--red-light); border: 2px solid var(--red); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .highlight h3 { font-size: 13px; font-weight: 900; color: var(--red); margin-bottom: 8px; }
+  .highlight p, .highlight li { font-size: 13px; color: #7a0000; margin-bottom: 4px; }
+  .highlight ul { padding-left: 16px; }
+  .accordion { margin-bottom: 16px; }
+  .acc-header { display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; padding: 12px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; user-select: none; transition: background 0.15s; }
+  .acc-header:hover { background: var(--gray-100); }
+  .acc-header .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--red); border-left: 3px solid var(--red); padding-left: 8px; margin-bottom: 5px; display: block; }
+  .acc-preview { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .acc-header-left { flex: 1; }
+  .acc-icon { width: 28px; height: 28px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gray-200); font-size: 13px; transition: transform 0.25s, background 0.2s; }
+  .acc-header.open .acc-icon { transform: rotate(180deg); background: var(--red); color: #fff; }
+  .acc-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .acc-body { display: none; padding: 20px 18px; border: 1px solid var(--gray-200); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 10px; }
+  .acc-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .acc-body li { margin-bottom: 6px; }
+  .job-wrap { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .job-header { background: var(--gray-900); color: #fff; padding: 14px 18px; display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; user-select: none; }
+  .job-title-text { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
+  .job-preview { font-size: 11px; color: #aaa; line-height: 1.5; }
+  .job-icon { width: 26px; height: 26px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 12px; transition: transform 0.25s; }
+  .job-header.open .job-icon { transform: rotate(180deg); }
+  .job-body { display: none; padding: 20px 18px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .job-body.open { display: block; }
+  .job-body p { margin-bottom: 10px; }
+  .job-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .job-body li { margin-bottom: 6px; }
+  .job-section { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 6px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 8px; }
+  .tag-must { background: var(--red); color: #fff; }
+  .tag-want { background: var(--gray-600); color: #fff; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; border-left: 3px solid var(--red); padding-left: 8px; margin: 22px 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lbtn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 6px; background: var(--gray-900); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .lbtn:hover { background: var(--red); }
+  .lbtn-out { background: transparent; color: var(--gray-900); border: 2px solid var(--gray-200); }
+  .lbtn-out:hover { background: var(--gray-900); color: #fff; border-color: var(--gray-900); }
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: var(--gray-500); border-top: 1px solid var(--gray-200); background: #fff; }
+  @media(max-width:600px){ .card-inner{ padding: 18px 14px 24px; } .overview th { width: 80px; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="morich_logo.jpg" alt="morich">
+  <div class="htxt">
+    <p>morich キャリアご提案資料</p>
+    <p>佐々木世紀  様</p>
+  </div>
+</header>
+<nav class="nav-bar">
+  <a href="#k1">1. 株式会社テクノプロ　コンサルティング・パートナーズ社</a>
+  <a href="#k2">2. 株式会社リブ・コンサルティング</a>
+</nav>
+<main>
+
+<div class="card" id="k1"><div class="card-inner">
+  <div class="badges"><span class="badge">人事企画部長</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社テクノプロ　コンサルティング・パートナーズ社</div>
+  <div class="co-url"><a href="https://www.technopro.com/cp/" target="_blank">https://www.technopro.com/cp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区六本木6-10-1 六本木ヒルズ森タワー35階</td></tr><tr><th>上場区分</th><td>未上場（ブラックストーン出資により非公開化）</td></tr><tr><th>従業員数</th><td>エンジニア約2,000名（グループ全体：国内2万8,000名、海外含め約3万人）</td></tr><tr><th>売上規模</th><td>200数十億円（グループ全体：約2,400億円）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>圧倒的なエンジニア基盤と巨大な資金力を武器に、3年間で『時価総額1兆円＆再上場』を目指す、極めてダイナミックな変革フェーズ！</li><li>すでに売上200数十億円・2,000名規模の組織基盤がありながら、中身をゼロから自分たちの手で作り上げていく『大人のベンチャー』のようなエキサイティングな環境で、あなたの経験をフルに発揮できる！</li><li>ストックオプションによる大きなアップサイドも狙える、今しか乗れない特別な船！</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2025年に世界最大級のPEファンド『ブラックストーン』の出資を受け非公開化し、新たな成長戦略を推進するテクノプログループ。本カンパニーは、従来のエンジニア派遣中心から『高付加価値なソリューション提供型』へビジネスモデルを変革するため、グループ内の受託開発機能を統合して新設されました。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2025年に世界最大級のPEファンド『ブラックストーン』の出資を受け非公開化し、新たな成長戦略を推進するテクノプログループ。本カンパニーは、従来のエンジニア派遣中心から『高付加価値なソリューション提供型』へビジネスモデルを変革するため、グループ内の受託開発機能を統合して新設されました。</p><p>グループ全体で売上約2,400億円、国内エンジニア数2万8,000名（海外含め約3万人）を誇り、新カンパニー単体でも既にエンジニア約2,000名、売上200数十億円の強固な基盤を持ちます。事業は「AI・データ活用」「クラウド基盤」「モノづくり」「モビリティ」の4領域です。開発して終わりの納品完了型ではなく、運用データを戦略へ還流させ続ける『サークルモデル』を採用し、戦略立案から現場の運用・改善まで長期伴走で支援します。</p><p>他社との最大の違いは、大手製造業を中心とした2,000社以上の顧客基盤と、システムだけでなく業務現場を知り尽くしたエンジニア基盤による圧倒的な『伴走力』と『対応力』です。</p><p><strong>【IPOと資金調達状況】</strong><br>ブラックストーンの強固な資金力を背景に、AI・デジタル領域へ100億円超、M&Aに1,000億円超という大胆な投資を実施予定です。3年かけて事業構造の抜本的改革を行い、グループ時価総額を現在の約5,000億円から『1兆円』へ倍増させ、再上場（IPO）を目指しています。</p><p><strong>【圧倒的な裁量とアップサイド】</strong><br>既存の200数十億円・2,000名規模の事業をベースにしつつ、これらをリブランディングし、売上を倍の500億円規模へ急成長させるミッションです。事業本部長などの経営幹部クラスにはストックオプション（SO）も付与され、事業成長に伴う大きなリターンが狙えます。</p><p><strong>【大企業の基盤×ベンチャーのカオス】</strong><br>国内3万人のエンジニアと大手製造業（トヨタ、ソニーなど）を中心とする強固な顧客基盤という『揺るぎない土台』があります。一方で、大手SIerのように全てが整っている環境ではなく、組織やシステムを『何もないところから作り上げる』泥臭さやカオスな面白さを味わえます。</p><p><strong>【柔軟な働き方と年齢不問のフラットな環境】</strong><br>リモートワークとオフィスワークのハイブリッド勤務が可能です（※初年度は組織構築や顧客訪問のため、フットワーク軽く出社できることが推奨されます）。また、年齢制限はなく、過去には60代の方が活躍するなど、ポテンシャルと実力がフラットに評価されるカルチャーです。</p><p><strong>【代表取締役社長　嶋岡 学 氏】</strong><br>テクノプロ・ホールディングス株式会社 代表取締役副社長 兼 COO／株式会社テクノプロ 代表取締役社長。大学卒業後、テクノプロ・グループの前身となる会社に入社。入社から半年ほどで関連子会社を任される。順調に業績を伸ばし、様々な業種の子会社の社長を歴任。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 人事企画部長</div>
+          <div class="job-preview">新設カンパニーの人事戦略を牽引し、ソリューション人材に特化した評価制度設計・組織開発を担うリーダーポジション</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>株式会社テクノプロは、2025年に世界最大級のPEファンドであるブラックストーンによる出資を経て、新たな成長戦略を推進しています。その一環として、株式会社テクノプロ内に新カンパニー『コンサルティング・パートナーズ』（以下CPという）を設立します。CPは、従来のエンジニア派遣を中心としたビジネスから、ソリューション提供型のビジネスモデルへの変革を牽引する中心的な存在となります。</p><p>CPは、テクノプログループの技術力と顧客基盤を活かしながら、AI・データ活用、業務変革支援、システム構築・運用・保守・モダナイズを中心としたコンサルティング・SIの総合ソリューションを提供する予定です。</p><p><strong>CPは、4つの事業領域を軸に構成されます。</strong></p><ul><li><strong>モノづくり領域：</strong>製造業向けECM、SCMおよびデータマネジメントのソリューション提供</li><li><strong>モビリティ領域：</strong>モビリティ（特にSoftware Defined Vehicle領域）のソリューション提供</li><li><strong>AI・データ・クラウド基盤領域：</strong>クラウド・セキュリティ・ネットワーク等の基盤技術ソリューション提供</li><li><strong>AI・データ活用領域：</strong>AI・機械学習を活用したソリューション提供</li></ul><p>CPは、新戦略に基づき、ビジネスモデル、提供サービス、組織構造、カルチャー、制度などを刷新する予定です。既存の組織能力を維持しつつ、新たな事業目標を達成するため、事業戦略と組織マネジメントの両輪を回し、戦略立案から実行まで一貫して推進できる経営幹部人材を求めています。過去最高収益を上げた一定規模の組織を、大胆な戦略と投資で大きく変革する、この難易度の高いチャレンジを一緒に楽しめるリーダーシップ人材を募集します。</p><p><strong>■主要業務内容</strong></p><ul><li>事業戦略に紐づいた人材ポートフォリオの策定</li><li>ソリューション人材に特化した人事評価制度の設計・導入・運用（ホールディングス側との連携前提）</li><li>リスキリングおよびキャリアパス制度の構築</li><li>組織開発とエンゲージメント向上施策</li></ul><p><strong>■応募資格</strong></p><p><strong>必須要件</strong></p><ul><li><span class='tag tag-must'>MUST</span> 人事部門責任者またはHRBPとしての実務経験（8年以上が望ましい）</li><li><span class='tag tag-must'>MUST</span> IT・テック業界における評価制度設計の経験</li><li><span class='tag tag-must'>MUST</span> 経営層へのHR戦略提案能力</li><li><span class='tag tag-must'>MUST</span> 組織開発の実務経験</li></ul><p><strong>歓迎要件</strong></p><ul><li><span class='tag tag-want'>WANT</span> コンサルティングファームまたはIT企業でのHR経験</li><li><span class='tag tag-want'>WANT</span> 組織立ち上げフェーズでのHR責任者経験</li><li><span class='tag tag-want'>WANT</span> タレントマネジメントシステム導入経験</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.technopro.com/cp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://drive.google.com/file/d/17tP24uplEgH_eiSADNw2xfdcHj--45LK/view?usp=sharing" target="_blank">📄 会社概要資料</a><a class="lbtn lbtn-out" href="https://www.technopro.com/news/8996/" target="_blank">📰 新組織設立プレスリリース</a></div>
+</div></div>
+
+<div class="card" id="k2"><div class="card-inner">
+  <div class="badges"><span class="badge">人事・HRBP</span><span class="badge badge-blue">東証グロース</span></div>
+  <div class="co-name">株式会社リブ・コンサルティング</div>
+  <div class="co-url"><a href="https://www.libcon.co.jp/" target="_blank">https://www.libcon.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都中央区日本橋二丁目7番1号 東京日本橋タワー29階</td></tr><tr><th>上場区分</th><td>東証グロース（2025年12月25日新規上場）</td></tr><tr><th>支援実績</th><td>累計1万件超（2025年10月末時点）</td></tr><tr><th>売上構成</th><td>中堅中小企業42%、大企業34%、ベンチャー24%</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>★社長リレーション</li><li>★過去複数名入社実績アリ</li><li>2025年12月25日に東京証券取引所グロース市場への新規上場！VCが入っていない手堅いIPOで、企業としてのステージが一段と高まっています。</li><li>上場企業としての信頼性や事業基盤の強化により、キャリア形成や市場価値向上を図りたい方にとって魅力的な環境です。</li><li>実行力重視の組織で、自分の力を社会価値につなげたい方にオススメです！！</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">『100年後の世界を良くする会社を増やす』というミッションを掲げ、スタートアップやベンチャー、ユニコーン企業など、世の中に新しいイノベーションを起こす企業や、地域経済や地方創生に貢献する企業を対象とした総合コンサルティングファームです。2025年12月に東京証券取引所グロース市場へ新規上場。創業以来、累計で1万件を超える支援プロジェクト実績を持ちます。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>『100年後の世界を良くする会社を増やす』というミッションを掲げ、スタートアップやベンチャー、ユニコーン企業など、世の中に新しいイノベーションを起こす企業や、地域経済や地方創生に貢献する企業を対象とした総合コンサルティングファームです。創業以来、中堅・ベンチャー企業を中心とした『クライアントの事業成長にコミットしたコンサルティング』は大手企業の新規事業コンサルティングにも領域を広げ価値を発揮しています。戦略を描くだけでなく、経営の意思決定に入り込みながら現場に直接働きかけて実行支援をするスタイルが特徴で、企業変革にダイレクトに関わることができます。現在もすべての意思決定の軸にこの理念が置かれており、単なる利益追求でなく、未来に価値を残す企業を支援することを使命としています。</p><p>2025年12月に東京証券取引所グロース市場へ新規上場。創業以来、累計で1万件を超える支援プロジェクト実績を持ち、売上構成は中堅中小企業42%、大企業34%、ベンチャー24％と多様な層からの依頼があります。これまで売上は右肩上がりで推移し、成長軌道を描いています。また、タイにコンサルティング子会社も持ち、グローバルにも支援を展開しています。</p><p><strong>【グループ体制】</strong><br>国内外6社で構成されるコンサルティンググループとして、経営戦略、営業支援、DX推進、ベンチャー投資など幅広い領域を展開しています。</p><p>主なグループ会社：</p><ul><li>株式会社Flow Group（フリーコンサル人材事業）</li><li>株式会社Goofy（Salesforce支援）</li><li>株式会社プルーセル（営業代行）</li><li>株式会社Impact Venture Capital（投資）</li><li>LiB Consulting(Thailand) Co., Ltd.（タイ拠点）</li></ul><p><strong>【特徴・強み】</strong></p><ul><li><strong>① 顧客層の幅広さ（ベンチャー～大企業）：</strong>売上構成：ベンチャー24%、中堅・中小企業42%、大企業34%。地方含め全国展開。1万件超の支援実績（2025年10月末時点）</li><li><strong>② 徹底した『現場主義』のハンズオン支援：</strong>戦略提案にとどまらず、実行支援まで一貫して関与。営業同行や研修実施など、現場に入り込む支援スタイル</li><li><strong>③ ベンチャー／中小・大企業の相乗支援モデル：</strong>各企業規模で培ったノウハウを横断的に活用。クロスポイントでの価値創出により差別化を実現</li><li><strong>④ 戦略～実行までを支えるグループ連携：</strong>グループ内の専門会社がマーケ・システム・営業まで分業連携。例：戦略→GoofyがDX実装→プルーセルが営業実行</li><li><strong>⑤ AI・テクノロジーの積極活用：</strong>生成AIによるコンサルナレッジの活用、業務の自動化。Preferred Networks社との共同事業も展開</li><li><strong>⑥ ノウハウのSaaS展開（アンバサダークラウド）：</strong>コンサル知見をSaaSで提供、より広範囲・低価格での価値提供を実現。2024年末時点で173社・6万人が利用</li><li><strong>⑦ 海外展開の強化：</strong>タイ子会社での事業展開や、韓国コンサル企業との提携によりアジア進出を推進。日本⇄海外のナレッジ連携による付加価値を提供</li><li><strong>⑧ M&A後の成長支援に強み：</strong>子会社化後の成長実績多数（Goofy、Flow Groupなど）。バリューアップを前提とした買収戦略を展開</li></ul><p><strong>【代表取締役　関 厳（せき いわお）氏】</strong><br>1979年愛知県出身。国際公認経営コンサルティング協議会認定のマスター・マネジメント・コンサルタント。東京大学を卒業後、2002年に大手経営コンサルティング（インタープライズ・コンサルティング（旧日本エル・シー・エー））に入社し、住宅・不動産、自動車、電機メーカー、卸売など幅広い業界のコンサルティング業務に従事。その後、ボードメンバーとしてコンサルティング部門を統括し、2012年に『100年後の世界を良くする会社を増やす』を理念としてリブ・コンサルティングを設立。</p><p><strong>【受賞歴・認定】</strong></p><ul><li>『働きがいのある会社』ランキング『働きがい認定企業』10年連続受賞</li><li>ベストモチベーションカンパニーアワード4年連続受賞</li></ul><p><strong>【制度・文化】</strong></p><ul><li>毎月のプロジェクト・ナレッジ共有会</li><li>複線的キャリアパスを支える人事評価制度</li><li>経営理念の実現に向けた全社員プロジェクト</li><li>半期ごとに全部門共通で全社表彰を実施</li></ul></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 Confidential【人事_評価・HRBP】ファームの組織運営を担う中核人材</div>
+          <div class="job-preview">事業拡大・組織改編に伴い、評価運用およびHRBP業務を担う中核人材を増員採用。現場コンサルタントと連携し人・組織の側面から事業推進をサポート</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>リブ・コンサルティングは『100年後の世界を良くする会社を増やす』という経営理念の下、スタートアップやベンチャー、ユニコーン企業など、世の中に新しいイノベーションを起こす企業や、地域経済や地方創生に貢献していく中堅企業を対象とした総合コンサルティングファームです。2012年の創業以来、事業成長を続けており、同時に、CVCの設立やDXコンサルティングの開発、Saas事業の立ち上げ等、事業の多様化も推進しています。</p><p>この度、事業拡大および組織改編に伴い、人事・HRBP部門の体制を強化します。事業の拡大や個別性の高まりによって、評価業務およびHRBPが増加しており、組織の質的成長を支えるための増員採用を行うこととなりました。単なる『人事事務』に留まらず、現場のコンサルタントやマネージャーと連携し、事業推進を人・組織の側面からサポートいただける方を募集します。</p><p><strong>【インタビュー】</strong><br>執行役員CHRO 武山 慎吾：https://prtimes.jp/story/detail/oroWNZf8Dqr</p><p><strong>【業務ミッション】</strong><br>各事業部の担当役員やパートナーと連携しながら、人事評価の運用およびHRBP業務全般をお任せします。</p><p><strong>1. 評価運用業務</strong></p><ul><li>半期ごとの評価取りまとめ、調整会議の準備・運営</li><li>月次プロジェクト評価の集計・管理（各プロジェクトのパフォーマンス可視化と調整）</li><li>評価制度の運用改善</li></ul><p><strong>2. HRBP業務</strong></p><ul><li>組織、人事観点でのアサインの調整（プロジェクト間の人員配置）の仲介・調整</li><li>スキルの可視化プロジェクト（設計・運用：他部署と連携）</li><li>その他、現場から発生する人事課題への対応、相談窓口</li></ul><p><strong>3. その他人事業務</strong></p><ul><li>希望や適性に応じて、採用や研修等にも従事いただくことも可能です</li><li>全社イベントの運営等には関与いただきます</li></ul><p><strong>■応募資格</strong></p><ul><li><span class='tag tag-must'>MUST</span> 大卒以上</li><li><span class='tag tag-must'>MUST</span> 人事経験（HRBP、評価運用）／または事業推進・営業企画等での数値管理・調整実務経験（いずれか必須）</li></ul><p><strong>【求める人物像（Fit）】</strong></p><ul><li>丁寧かつ確実に仕事ができ、細部まで妥協せずに業務を遂行できる方</li><li>多様なステークホルダーと円滑にコミュニケーションが取れる方</li><li>機微な情報やコンフリクトに対しても、過度に同調・反応せず、客観性を保って冷静に対応できる方</li><li>昇進意欲よりも、専門性を持って組織を支えることにやりがいを感じる方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">❌ 副業不可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.libcon.co.jp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://prtimes.jp/story/detail/oroWNZf8Dqr" target="_blank">👤 CHROインタビュー</a></div>
+</div></div>
+</main>
+<footer>
+  <p>本資料はmorichが佐々木世紀  様のためにご用意した個人情報を含む機密資料です。無断転用・転載はご遠慮ください。</p>
+  <p style="margin-top:6px;">© 株式会社morich</p>
+</footer>
+<script>
+  function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+  function toggleJob(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
